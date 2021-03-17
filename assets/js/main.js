@@ -7,7 +7,8 @@
 // di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, 
 // cognome e età.
 
-
+var nameSurname = [];
+var formUtente = [];
 
 $(document).ready(function(){
     printStudent();
@@ -44,6 +45,7 @@ function printStudent(){
 
 function formStudent(){
     $('.form-container button').click(function(){
+        $('ul').show();
         var name = $('#name').val();
         var surename = $('#surename').val();
         var age = $('#age').val();
@@ -62,23 +64,23 @@ function formStudent(){
             
         };
         studenti.push(formUtente);
-        printArrays();
+        printObj();
     });
 }
 
 
-function printArrays(){
+function printObj(){
     for (let i = 0; i < studenti.length; i++) {
-        console.log('Generalità studente');
-        for (const key in studenti[i]) {
-            if(key === 'nome'){
-                console.log(key + ':',studenti[i]['nome']);
-            }else if(key === 'cognome'){
-                console.log(key + ':',studenti[i]['cognome']);
-            };
-        };
-                
+        
+            $('ul').append('<li>'+studenti[i].nome + ' ' + studenti[i].cognome+'</li>');
+            
+            console.log(studenti[i].nome + ' : ' + studenti[i].cognome);            
     };
+    
 };
+
+
+
+
 
 
